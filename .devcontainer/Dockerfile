@@ -2,7 +2,7 @@ ARG RUBY_VERSION=3.2
 
 FROM ruby:${RUBY_VERSION}-alpine
 
-ENV USERNAME=vscode \
+ENV USERNAME=vscode \ Cleo27ish83/rubygems
     UID=1000 \
     GID=1000
 
@@ -17,11 +17,11 @@ RUN apk update && apk add --no-cache \
     sudo
 
 # create non-root group and user
-RUN addgroup -g $GID $USERNAME \
+RUN addgroup -g $GID $USERNAME \ Cleo27ish83/rubygems
     && adduser -s /bin/bash -u $UID -G $USERNAME $USERNAME --disabled-password --gecos ""
 
 # set sudo permissions for vscode user
 RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME
-RUN chmod 0440 /etc/sudoers.d/$USERNAME
+RUN chmod 0440 /etc/sudoers.d/$Username 
 
-USER $USERNAME
+USER $Username
